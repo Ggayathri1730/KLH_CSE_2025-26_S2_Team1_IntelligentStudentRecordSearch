@@ -1,0 +1,10 @@
+Roll Number: 2520031524
+Name: Ishita Sharma
+Department: Computer Science and Engineering
+Year: 2
+Section: B
+Skills: Python, JavaScript, Machine Learning, Data Structures
+Projects: Intelligent Career Recommendation System
+Certifications: Python Programming
+Interests: Artificial Intelligence, Machine Learning, Data Science
+Achievements: Innovation Hackathon Participant
