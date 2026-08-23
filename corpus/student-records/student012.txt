@@ -1,0 +1,10 @@
+Roll Number: 2520039622
+Name: Somana Divya Sai
+Department: Computer Science and Engineering
+Year: 2
+Section: A
+Skills: Java, Python, Data Structures, Cloud Computing
+Projects: Cloud-Based Student Portal
+Certifications: Cloud Computing Fundamentals
+Interests: Cloud Computing, Distributed Systems
+Achievements: Cloud Technology Hackathon Participant
