@@ -1,0 +1,10 @@
+Roll Number: 2520030301
+Name: Ananya Reddy
+Department: Electronics and Communication Engineering
+Year: 2
+Section: B
+Skills: Python, Machine Learning, C++, Data Structures
+Projects: Face Recognition System
+Certifications: Machine Learning Fundamentals
+Interests: Artificial Intelligence, Computer Vision
+Achievements: Project Expo Participant
