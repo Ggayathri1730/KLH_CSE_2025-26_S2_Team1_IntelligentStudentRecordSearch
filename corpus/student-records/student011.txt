@@ -1,0 +1,10 @@
+Roll Number: 2520031180
+Name: Divya Rao
+Department: Cyber Security
+Year: 2
+Section: A
+Skills: Python, Networking, Cyber Security, Linux
+Projects: Network Intrusion Detection System
+Certifications: Cyber Security Fundamentals
+Interests: Ethical Hacking, Network Security
+Achievements: Cyber Security Workshop Participant
