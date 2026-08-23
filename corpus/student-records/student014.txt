@@ -1,0 +1,10 @@
+Roll Number: 2520031413
+Name: Sandeep Kumar
+Department: Computer Science and Engineering
+Year: 2
+Section: A
+Skills: Java, Python, Algorithms, Software Engineering
+Projects: Campus Event Management System
+Certifications: Java Programming
+Interests: Software Development, Algorithms
+Achievements: Project Expo Finalist
