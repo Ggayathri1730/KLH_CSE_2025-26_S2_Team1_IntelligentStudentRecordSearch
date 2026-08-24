@@ -10,6 +10,7 @@ public class CorpusLoader {
     public static void searchCorpus(String folderPath, String pattern) {
 
         File folder = new File(folderPath);
+
         File[] files = folder.listFiles();
 
         if (files == null) {
@@ -17,8 +18,11 @@ public class CorpusLoader {
             return;
         }
 
+        System.out.println("\n======================================");
         System.out.println("Search Pattern: " + pattern);
-        System.out.println("--------------------------------");
+        System.out.println("======================================");
+
+        int matchCount = 0;
 
         for (File file : files) {
 
@@ -27,7 +31,7 @@ public class CorpusLoader {
                 StringBuilder content = new StringBuilder();
 
                 try (BufferedReader reader =
-                        new BufferedReader(new FileReader(file))) {
+                             new BufferedReader(new FileReader(file))) {
 
                     String line;
 
@@ -41,17 +45,36 @@ public class CorpusLoader {
                     );
 
                     if (found) {
-                        System.out.println(
-                                "Match found in: " + file.getName()
-                        );
+
+                        matchCount++;
+
+                        System.out.println("\n========== MATCH FOUND ==========");
+                        System.out.println("File: " + file.getName());
+                        System.out.println("=================================");
+
+                        // Display complete student record
+                        try (BufferedReader displayReader =
+                                     new BufferedReader(new FileReader(file))) {
+
+                            while ((line = displayReader.readLine()) != null) {
+                                System.out.println(line);
+                            }
+                        }
+
+                        System.out.println("=================================");
                     }
 
                 } catch (IOException e) {
+
                     System.out.println(
                             "Error reading: " + file.getName()
                     );
                 }
             }
         }
+
+        System.out.println("\n======================================");
+        System.out.println("Total Matching Records: " + matchCount);
+        System.out.println("======================================");
     }
 }
