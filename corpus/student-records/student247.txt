@@ -1,6 +1,6 @@
 Student Record ID: SR247
 Roll Number: 2520000247
-Name: Sneha Menon
+Name: Aditi Dey
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

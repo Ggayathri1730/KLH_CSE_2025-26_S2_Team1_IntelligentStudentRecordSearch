@@ -1,6 +1,6 @@
 Student Record ID: SR477
 Roll Number: 2520000477
-Name: Vaishnavi Reddy
+Name: Aditi Dubey
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

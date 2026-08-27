@@ -1,6 +1,6 @@
 Student Record ID: SR138
 Roll Number: 2520000138
-Name: Sai Choudhary
+Name: Aditi Mathur
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

@@ -1,6 +1,6 @@
 Student Record ID: SR394
 Roll Number: 2520000394
-Name: Karthik Choudhary
+Name: Aditi Tripathi
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

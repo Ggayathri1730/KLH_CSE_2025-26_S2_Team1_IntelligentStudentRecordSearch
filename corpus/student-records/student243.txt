@@ -1,6 +1,6 @@
 Student Record ID: SR243
 Roll Number: 2520000243
-Name: Rahul Patel
+Name: Aditi Sarkar
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

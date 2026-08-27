@@ -1,6 +1,6 @@
 Student Record ID: SR379
 Roll Number: 2520000379
-Name: Sai Choudhary
+Name: Aditi Naik
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

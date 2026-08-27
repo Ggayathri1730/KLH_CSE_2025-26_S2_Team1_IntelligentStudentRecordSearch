@@ -1,6 +1,6 @@
 Student Record ID: SR480
 Roll Number: 2520000480
-Name: Zoya Bhat
+Name: Aditi Sood
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

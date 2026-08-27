@@ -1,6 +1,6 @@
 Student Record ID: SR289
 Roll Number: 2520000289
-Name: Bhavya Kulkarni
+Name: Aditi Samanta
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

@@ -1,6 +1,6 @@
 Student Record ID: SR429
 Roll Number: 2520000429
-Name: Rohit Singh
+Name: Aditi Nanda
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

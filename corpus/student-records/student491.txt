@@ -1,6 +1,6 @@
 Student Record ID: SR491
 Roll Number: 2520000491
-Name: Krishna Saxena
+Name: Aditi Thakur
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

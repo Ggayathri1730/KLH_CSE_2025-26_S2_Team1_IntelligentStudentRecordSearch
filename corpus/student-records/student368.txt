@@ -1,6 +1,6 @@
 Student Record ID: SR368
 Roll Number: 2520000368
-Name: Zoya Menon
+Name: Amrita Bose
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

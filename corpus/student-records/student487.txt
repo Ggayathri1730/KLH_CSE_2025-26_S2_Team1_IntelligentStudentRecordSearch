@@ -1,6 +1,6 @@
 Student Record ID: SR487
 Roll Number: 2520000487
-Name: Arjun Gupta
+Name: Amrita Kamble
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

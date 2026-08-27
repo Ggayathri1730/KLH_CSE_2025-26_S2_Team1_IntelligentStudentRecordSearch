@@ -1,6 +1,6 @@
 Student Record ID: SR287
 Roll Number: 2520000287
-Name: Charan Mishra
+Name: Aditi Garg
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

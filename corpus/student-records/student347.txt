@@ -1,6 +1,6 @@
 Student Record ID: SR347
 Roll Number: 2520000347
-Name: Ananya Reddy
+Name: Amrita Acharya
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

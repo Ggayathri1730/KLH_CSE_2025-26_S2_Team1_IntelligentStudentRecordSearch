@@ -1,6 +1,6 @@
 Student Record ID: SR439
 Roll Number: 2520000439
-Name: Sai Singh
+Name: Aditi Kamble
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

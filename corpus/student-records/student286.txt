@@ -1,6 +1,6 @@
 Student Record ID: SR286
 Roll Number: 2520000286
-Name: Rahul Saxena
+Name: Aditi Roy
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

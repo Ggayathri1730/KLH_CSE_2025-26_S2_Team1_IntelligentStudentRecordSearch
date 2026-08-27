@@ -1,6 +1,6 @@
 Student Record ID: SR393
 Roll Number: 2520000393
-Name: Vaishnavi Menon
+Name: Aditi Rathore
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

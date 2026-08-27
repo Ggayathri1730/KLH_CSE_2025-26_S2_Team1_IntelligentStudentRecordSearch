@@ -1,6 +1,6 @@
 Student Record ID: SR400
 Roll Number: 2520000400
-Name: Madhav Bhat
+Name: Aditi Oberoi
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

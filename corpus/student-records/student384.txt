@@ -1,6 +1,6 @@
 Student Record ID: SR384
 Roll Number: 2520000384
-Name: Shreya Nair
+Name: Amrita Arora
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

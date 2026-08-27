@@ -1,6 +1,6 @@
 Student Record ID: SR330
 Roll Number: 2520000330
-Name: Nisha Chauhan
+Name: Aditi Gowda
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

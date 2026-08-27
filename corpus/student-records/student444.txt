@@ -1,6 +1,6 @@
 Student Record ID: SR444
 Roll Number: 2520000444
-Name: Krishna Gupta
+Name: Amrita Chakraborty
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

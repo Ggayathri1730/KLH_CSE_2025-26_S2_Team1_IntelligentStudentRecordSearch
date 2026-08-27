@@ -1,6 +1,6 @@
 Student Record ID: SR276
 Roll Number: 2520000276
-Name: Deepak Goud
+Name: Aditi Subramanian
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

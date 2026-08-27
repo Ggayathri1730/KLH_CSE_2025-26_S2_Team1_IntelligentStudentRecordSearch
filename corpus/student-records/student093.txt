@@ -1,6 +1,6 @@
 Student Record ID: SR093
 Roll Number: 2520000093
-Name: Sneha Naidu
+Name: Aditi Acharya
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

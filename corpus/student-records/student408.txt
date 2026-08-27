@@ -1,6 +1,6 @@
 Student Record ID: SR408
 Roll Number: 2520000408
-Name: Sandeep Kapoor
+Name: Aditi Dhawan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1

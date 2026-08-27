@@ -1,6 +1,6 @@
 Student Record ID: SR150
 Roll Number: 2520000150
-Name: Yash Iyer
+Name: Aditi Madan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

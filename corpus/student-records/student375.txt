@@ -1,6 +1,6 @@
 Student Record ID: SR375
 Roll Number: 2520000375
-Name: Pooja Joshi
+Name: Aditi Jha
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

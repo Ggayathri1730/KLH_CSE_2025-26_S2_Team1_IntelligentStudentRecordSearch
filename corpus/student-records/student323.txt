@@ -1,6 +1,6 @@
 Student Record ID: SR323
 Roll Number: 2520000323
-Name: Abhinav Kumar
+Name: Aditi Walia
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

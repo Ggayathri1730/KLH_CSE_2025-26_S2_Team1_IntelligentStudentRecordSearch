@@ -1,6 +1,6 @@
 Student Record ID: SR120
 Roll Number: 2520000120
-Name: Pooja Joshi
+Name: Aditi Hegde
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

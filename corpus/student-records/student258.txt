@@ -1,6 +1,6 @@
 Student Record ID: SR258
 Roll Number: 2520000258
-Name: Harsh Choudhary
+Name: Aditi Kaur
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

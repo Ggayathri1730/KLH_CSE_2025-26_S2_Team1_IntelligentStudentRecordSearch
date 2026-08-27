@@ -1,6 +1,6 @@
 Student Record ID: SR390
 Roll Number: 2520000390
-Name: Rahul Saxena
+Name: Aditi Sahu
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

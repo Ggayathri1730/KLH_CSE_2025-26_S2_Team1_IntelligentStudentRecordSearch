@@ -1,6 +1,6 @@
 Student Record ID: SR325
 Roll Number: 2520000325
-Name: Vaishnavi Menon
+Name: Aditi Rastogi
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

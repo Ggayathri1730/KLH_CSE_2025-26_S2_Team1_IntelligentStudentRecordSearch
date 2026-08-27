@@ -1,6 +1,6 @@
 Student Record ID: SR137
 Roll Number: 2520000137
-Name: Meera Kapoor
+Name: Aditi Narayanan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

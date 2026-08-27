@@ -1,6 +1,6 @@
 Student Record ID: SR281
 Roll Number: 2520000281
-Name: Ananya Desai
+Name: Aditi Mahajan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

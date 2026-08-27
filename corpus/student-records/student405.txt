@@ -1,6 +1,6 @@
 Student Record ID: SR405
 Roll Number: 2520000405
-Name: Tanvi Chauhan
+Name: Aditi Parikh
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

@@ -1,6 +1,6 @@
 Student Record ID: SR416
 Roll Number: 2520000416
-Name: Krishna Singh
+Name: Aditi Panda
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

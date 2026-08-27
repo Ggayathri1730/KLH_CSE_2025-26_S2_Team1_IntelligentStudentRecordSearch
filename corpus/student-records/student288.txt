@@ -1,6 +1,6 @@
 Student Record ID: SR288
 Roll Number: 2520000288
-Name: Lakshmi Choudhary
+Name: Aditi Venkatesh
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

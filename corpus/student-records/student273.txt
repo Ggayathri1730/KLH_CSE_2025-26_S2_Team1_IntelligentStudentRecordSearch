@@ -1,6 +1,6 @@
 Student Record ID: SR273
 Roll Number: 2520000273
-Name: Pranav Kulkarni
+Name: Amrita Babu
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

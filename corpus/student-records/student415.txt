@@ -1,6 +1,6 @@
 Student Record ID: SR415
 Roll Number: 2520000415
-Name: Zoya Pillai
+Name: Aditi Kashyap
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

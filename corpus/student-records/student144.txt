@@ -1,6 +1,6 @@
 Student Record ID: SR144
 Roll Number: 2520000144
-Name: Karthik Mehta
+Name: Aditi Bhardwaj
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

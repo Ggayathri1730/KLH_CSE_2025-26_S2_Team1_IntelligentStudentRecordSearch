@@ -1,6 +1,6 @@
 Student Record ID: SR277
 Roll Number: 2520000277
-Name: Aishwarya Gupta
+Name: Aditi Kannan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1

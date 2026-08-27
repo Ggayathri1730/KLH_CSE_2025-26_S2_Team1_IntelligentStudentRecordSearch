@@ -1,6 +1,6 @@
 Student Record ID: SR357
 Roll Number: 2520000357
-Name: Tanvi Desai
+Name: Amrita Chatterjee
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

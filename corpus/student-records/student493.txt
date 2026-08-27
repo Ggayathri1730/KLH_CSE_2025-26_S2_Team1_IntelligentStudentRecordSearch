@@ -1,6 +1,6 @@
 Student Record ID: SR493
 Roll Number: 2520000493
-Name: Karthik Reddy
+Name: Amrita Dhawan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

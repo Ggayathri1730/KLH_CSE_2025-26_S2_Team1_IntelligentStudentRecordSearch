@@ -1,6 +1,6 @@
 Student Record ID: SR371
 Roll Number: 2520000371
-Name: Karthik Sharma
+Name: Amrita Garg
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

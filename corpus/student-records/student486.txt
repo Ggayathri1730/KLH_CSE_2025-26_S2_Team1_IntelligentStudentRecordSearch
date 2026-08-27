@@ -1,6 +1,6 @@
 Student Record ID: SR486
 Roll Number: 2520000486
-Name: Riya Mehta
+Name: Aditi Mandal
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1

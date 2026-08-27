@@ -1,6 +1,6 @@
 Student Record ID: SR139
 Roll Number: 2520000139
-Name: Yash Iyer
+Name: Aditi Lohia
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

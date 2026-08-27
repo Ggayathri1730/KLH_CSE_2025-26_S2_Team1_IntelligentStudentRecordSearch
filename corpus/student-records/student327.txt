@@ -1,6 +1,6 @@
 Student Record ID: SR327
 Roll Number: 2520000327
-Name: Varun Menon
+Name: Aditi Chopra
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

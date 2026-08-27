@@ -1,6 +1,6 @@
 Student Record ID: SR485
 Roll Number: 2520000485
-Name: Karthik Reddy
+Name: Amrita Dey
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

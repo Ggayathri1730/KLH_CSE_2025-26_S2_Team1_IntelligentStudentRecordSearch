@@ -1,6 +1,6 @@
 Student Record ID: SR313
 Roll Number: 2520000313
-Name: Yash Pillai
+Name: Amrita Gowda
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

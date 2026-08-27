@@ -1,6 +1,6 @@
 Student Record ID: SR418
 Roll Number: 2520000418
-Name: Priya Saxena
+Name: Aditi Babu
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

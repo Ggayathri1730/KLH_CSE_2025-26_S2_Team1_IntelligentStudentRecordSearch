@@ -1,6 +1,6 @@
 Student Record ID: SR322
 Roll Number: 2520000322
-Name: Krishna Pillai
+Name: Amrita Bajaj
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1

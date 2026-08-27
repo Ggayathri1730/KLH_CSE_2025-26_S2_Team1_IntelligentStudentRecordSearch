@@ -1,6 +1,6 @@
 Student Record ID: SR440
 Roll Number: 2520000440
-Name: Tanvi Sinha
+Name: Aditi Kohli
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

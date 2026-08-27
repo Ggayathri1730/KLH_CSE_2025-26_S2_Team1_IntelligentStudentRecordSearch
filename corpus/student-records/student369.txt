@@ -1,6 +1,6 @@
 Student Record ID: SR369
 Roll Number: 2520000369
-Name: Madhav Malhotra
+Name: Amrita Kashyap
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

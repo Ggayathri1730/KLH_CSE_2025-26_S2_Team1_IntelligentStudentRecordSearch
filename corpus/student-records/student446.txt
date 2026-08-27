@@ -1,6 +1,6 @@
 Student Record ID: SR446
 Roll Number: 2520000446
-Name: Tanvi Chauhan
+Name: Aditi Paul
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 4

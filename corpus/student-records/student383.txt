@@ -1,6 +1,6 @@
 Student Record ID: SR383
 Roll Number: 2520000383
-Name: Bhavya Desai
+Name: Aditi Arora
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

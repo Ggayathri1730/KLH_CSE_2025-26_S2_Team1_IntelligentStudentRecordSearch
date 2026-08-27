@@ -1,6 +1,6 @@
 Student Record ID: SR099
 Roll Number: 2520000099
-Name: Anirudh Bhat
+Name: Aditi Lal
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

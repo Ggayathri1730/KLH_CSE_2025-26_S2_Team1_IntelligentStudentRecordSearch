@@ -1,6 +1,6 @@
 Student Record ID: SR270
 Roll Number: 2520000270
-Name: Lakshmi Choudhary
+Name: Aditi Upadhyay
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

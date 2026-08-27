@@ -1,6 +1,6 @@
 Student Record ID: SR315
 Roll Number: 2520000315
-Name: Kavya Patel
+Name: Aditi Shetty
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

@@ -1,6 +1,6 @@
 Student Record ID: SR072
 Roll Number: 2520000072
-Name: Meera Malhotra
+Name: Aditi Bose
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1

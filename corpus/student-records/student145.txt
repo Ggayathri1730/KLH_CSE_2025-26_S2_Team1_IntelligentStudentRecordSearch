@@ -1,6 +1,6 @@
 Student Record ID: SR145
 Roll Number: 2520000145
-Name: Keerthi Pillai
+Name: Aditi Chatterjee
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

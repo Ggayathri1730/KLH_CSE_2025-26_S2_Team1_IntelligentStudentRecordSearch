@@ -1,6 +1,6 @@
 Student Record ID: SR274
 Roll Number: 2520000274
-Name: Madhav Rao
+Name: Aditi Krishnan
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 3

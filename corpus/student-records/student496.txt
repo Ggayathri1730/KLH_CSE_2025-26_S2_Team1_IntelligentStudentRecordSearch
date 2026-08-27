@@ -1,6 +1,6 @@
 Student Record ID: SR496
 Roll Number: 2520000496
-Name: Saanvi Goud
+Name: Aditi Wadhwa
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

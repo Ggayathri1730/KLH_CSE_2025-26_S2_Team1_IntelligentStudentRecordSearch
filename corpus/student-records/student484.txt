@@ -1,6 +1,6 @@
 Student Record ID: SR484
 Roll Number: 2520000484
-Name: Deepak Das
+Name: Amrita Kaur
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

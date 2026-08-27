@@ -1,6 +1,6 @@
 Student Record ID: SR320
 Roll Number: 2520000320
-Name: Ananya Menon
+Name: Amrita Jha
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

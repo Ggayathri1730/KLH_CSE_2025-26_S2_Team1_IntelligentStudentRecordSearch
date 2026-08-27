@@ -1,6 +1,6 @@
 Student Record ID: SR256
 Roll Number: 2520000256
-Name: Madhav Reddy
+Name: Aditi Prasad
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

@@ -1,6 +1,6 @@
 Student Record ID: SR346
 Roll Number: 2520000346
-Name: Nikhil Singh
+Name: Amrita Bhardwaj
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

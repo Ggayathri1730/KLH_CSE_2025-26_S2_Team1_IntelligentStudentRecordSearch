@@ -1,6 +1,6 @@
 Student Record ID: SR443
 Roll Number: 2520000443
-Name: Riya Menon
+Name: Amrita Hegde
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2

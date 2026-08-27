@@ -1,6 +1,6 @@
 Student Record ID: SR403
 Roll Number: 2520000403
-Name: Aarav Naidu
+Name: Aditi Chakraborty
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1
