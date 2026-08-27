@@ -10,7 +10,6 @@ public class CorpusLoader {
     public static void searchCorpus(String folderPath, String pattern) {
 
         File folder = new File(folderPath);
-
         File[] files = folder.listFiles();
 
         if (files == null) {
@@ -39,20 +38,19 @@ public class CorpusLoader {
                         content.append(line).append(" ");
                     }
 
+                    // Case-insensitive KMP search
                     boolean found = KMP.search(
-                            content.toString(),
-                            pattern
+                            content.toString().toLowerCase(),
+                            pattern.toLowerCase()
                     );
 
                     if (found) {
 
                         matchCount++;
 
-                        System.out.println("\n========== MATCH FOUND ==========");
-                        System.out.println("File: " + file.getName());
-                        System.out.println("=================================");
+                        System.out.println("\n========== MATCH FOUND ==========\n");
 
-                        // Display complete student record
+                        // Print complete student details
                         try (BufferedReader displayReader =
                                      new BufferedReader(new FileReader(file))) {
 
@@ -61,14 +59,11 @@ public class CorpusLoader {
                             }
                         }
 
-                        System.out.println("=================================");
+                        System.out.println("\n=================================");
                     }
 
                 } catch (IOException e) {
-
-                    System.out.println(
-                            "Error reading: " + file.getName()
-                    );
+                    System.out.println("Error reading: " + file.getName());
                 }
             }
         }
