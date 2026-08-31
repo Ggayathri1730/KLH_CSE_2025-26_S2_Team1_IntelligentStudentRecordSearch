@@ -1,6 +1,6 @@
 Student Record ID: SR1154
 Roll Number: 2520001154
-Name: Saanvi Joshi
+Name: Gayathri Guttikonda
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 1
