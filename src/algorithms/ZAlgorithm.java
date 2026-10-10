@@ -1,6 +1,8 @@
 package algorithms;
 
 public class ZAlgorithm {
+
+    // Returns true if pattern is found in text
     public static boolean search(String text, String pattern) {
 
         if (pattern == null || text == null) {
@@ -21,15 +23,11 @@ public class ZAlgorithm {
         for (int i = 1; i < combined.length(); i++) {
 
             if (i <= right) {
-                z[i] = Math.min(
-                        right - i + 1,
-                        z[i - left]
-                );
+                z[i] = Math.min(right - i + 1, z[i - left]);
             }
 
             while (i + z[i] < combined.length()
-                    && combined.charAt(z[i])
-                    == combined.charAt(i + z[i])) {
+                    && combined.charAt(z[i]) == combined.charAt(i + z[i])) {
 
                 z[i]++;
             }

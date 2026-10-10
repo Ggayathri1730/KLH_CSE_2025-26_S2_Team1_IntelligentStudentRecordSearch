@@ -1,6 +1,7 @@
 package algorithms;
 
 public class AhoCorasickTest {
+
     public static void main(String[] args) {
 
         System.out.println("======================================");

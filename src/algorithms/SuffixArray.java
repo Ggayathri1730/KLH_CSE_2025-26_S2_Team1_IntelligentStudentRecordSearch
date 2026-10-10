@@ -1,7 +1,8 @@
 package algorithms;
 
 public class SuffixArray {
-        private String text;
+
+    private String text;
     private int[] suffixArray;
 
     public SuffixArray(String text) {
