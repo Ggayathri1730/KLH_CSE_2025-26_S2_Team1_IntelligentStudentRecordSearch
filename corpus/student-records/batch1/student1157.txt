@@ -1,6 +1,6 @@
 Student Record ID: SR1157
 Roll Number: 2520001157
-Name: Saanvi Kulkarni
+Name: Gayathri Guttikonda
 Department: Computer Science and Engineering
 Program: B.Tech
 Year: 2
