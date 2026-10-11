@@ -3,11 +3,11 @@
 **Course:** Data Structures and Algorithms – 3  
 **Team:** 1  
 **Supervisor:** Dr. S. Vinay Kumar, Associate Professor, Department of Computer Science and Engineering  
-**Current Phase:** Pattern/String Matching Implementation – Review 2
+**Project Phase:** Pattern Matching Implementation – Review 2
 
 ---
 
-## Student Details
+## 1. Student Details
 
 | S. No. | Student Name | Roll Number |
 |---:|---|---|
@@ -17,126 +17,137 @@
 
 ---
 
-## Abstract
+## 2. Abstract
 
-The Intelligent Student Record Search System is a Data Structures and Algorithms project designed to search and retrieve information from a corpus of student profile documents.
+The Intelligent Student Record Search System is a Data Structures and Algorithms project developed to facilitate efficient searching and retrieval of information from a collection of student profile documents.
 
-The system processes student profile files and applies string-matching algorithms to locate records containing user-specified patterns. The records may contain information such as names, skills, projects, certifications, and interests, depending on the available corpus data.
+The system processes a corpus of student records and applies string-matching algorithms to identify documents containing user-specified patterns. The searchable information may include student names, technical skills, projects, certifications, interests, and other attributes present in the records.
 
-The current pattern-matching implementation includes Naive Pattern Matching, Knuth–Morris–Pratt (KMP), and Rabin–Karp. KMP uses a Longest Proper Prefix that is also a Suffix (LPS) array to avoid unnecessary comparisons, while Rabin–Karp uses a rolling hash to identify candidate matches.
+The current implementation focuses on three pattern-matching algorithms: Naive Pattern Matching, Knuth–Morris–Pratt (KMP), and Rabin–Karp. KMP employs the Longest Proper Prefix that is also a Suffix (LPS) array to reduce redundant character comparisons. Rabin–Karp uses a rolling hash to identify candidate matches, followed by character-level verification where necessary.
 
-The project demonstrates the implementation, correctness comparison, and performance measurement of string-matching algorithms in a student-record search scenario.
-
----
-
-## Objectives
-
-1. Implement pattern-matching algorithms for searching student records.
-2. Load and search student information stored in the project corpus.
-3. Compare Naive Pattern Matching, KMP, and Rabin–Karp using the same queries.
-4. Verify that the algorithms produce consistent matching-record results.
-5. Measure and compare algorithm execution times under a common benchmark procedure.
-6. Develop additional search capabilities as required in future project phases.
-7. Demonstrate practical applications of Data Structures and Algorithms in student-record retrieval.
+The project demonstrates the implementation and comparative evaluation of string-matching algorithms in a practical student-record retrieval scenario. Its current phase emphasizes matching-result consistency and execution-time benchmarking.
 
 ---
 
-## Algorithms and Data Structures
+## 3. Objectives
 
-### Current pattern-matching implementation
+1. Implement string-matching algorithms for searching student records.
+2. Load and process student profile documents from the project corpus.
+3. Compare Naive Pattern Matching, KMP, and Rabin–Karp using identical search queries.
+4. Verify the consistency of matching results produced by the implemented algorithms.
+5. Measure and compare execution times using a common benchmarking procedure.
+6. Evaluate the practical behavior of different string-matching approaches on the same dataset.
+7. Extend the system in subsequent phases according to the project requirements and course syllabus.
 
-- Naive Pattern Matching
-- Knuth–Morris–Pratt (KMP)
-- Rabin–Karp
-- LPS array used by KMP
-- Rolling hash used by Rabin–Karp
+---
+
+## 4. Algorithms and Data Structures
+
+### 4.1 Pattern-Matching Algorithms
+
+- **Naive Pattern Matching:** Examines possible pattern positions in the text and compares characters to identify matches.
+- **Knuth–Morris–Pratt (KMP):** Uses an LPS array to avoid repeating comparisons that can be skipped based on previously matched characters.
+- **Rabin–Karp:** Uses a rolling hash to identify candidate pattern matches and verifies candidate matches as required.
+
+### 4.2 Supporting Components
+
 - Student record corpus loading
-- Matching-record collection and comparison
-- Execution-time benchmarking
+- Query processing and text normalization
+- Matching-record collection
+- Cross-algorithm result comparison
+- Execution-time measurement and benchmarking
 
-Additional algorithms and data structures may be incorporated in future phases according to the course requirements and project scope.
-
----
-
-## Current Phase Status
-
-### Review 2 – Pattern/String Matching
-
-**Status:** Pattern-matching implementation and benchmarking
-
-The current phase focuses on:
-
-- Searching the student-record corpus using Naive Pattern Matching, KMP, and Rabin–Karp.
-- Comparing matching-record results for the same queries.
-- Checking result consistency before comparing performance.
-- Measuring execution times using a benchmark procedure.
-- Reporting the benchmark results with the test environment and methodology.
-
-The application menu and available operations should be interpreted according to the current implementation in `Main.java`.
+Additional algorithms may be introduced in future phases after implementation and testing.
 
 ---
 
-## Project Flow
+## 5. Current Phase: Review 2
+
+**Focus:** Pattern Matching and Performance Evaluation
+
+The current phase addresses the implementation and evaluation of the three pattern-matching algorithms.
+
+The principal activities are:
+
+- Searching student records using user-specified patterns.
+- Executing the implemented algorithms against common queries.
+- Comparing the resulting matching-record paths.
+- Checking result consistency before performance measurement.
+- Measuring execution time under a common benchmark procedure.
+- Documenting observed results and experimental limitations.
+
+The available application operations are determined by the current implementation of the Java source files.
+
+---
+
+## 6. System Workflow
 
 ```text
 Student Record Corpus
-        |
-        v
-   Corpus Loader
-        |
-        v
-   Loaded Records
-        |
-        v
-     User Query
-        |
-        +-------------------+-------------------+
-        |                   |                   |
-        v                   v                   v
-      Naive                KMP             Rabin-Karp
-        |                   |                   |
-        +-------------------+-------------------+
-                            |
-                            v
-       Compare Matching Record Results
-                            |
-                            v
-              Verify Result Consistency
-                            |
-                            v
-                 Performance Analysis
+         |
+         v
+    Corpus Loader
+         |
+         v
+   Loaded Student Records
+         |
+         v
+       User Query
+         |
+         +-------------------+-------------------+
+         |                   |                   |
+         v                   v                   v
+       Naive                KMP             Rabin–Karp
+         |                   |                   |
+         +-------------------+-------------------+
+                             |
+                             v
+               Collect Matching Record Paths
+                             |
+                             v
+                 Compare Matching Results
+                             |
+                             v
+                 Verify Result Consistency
+                             |
+                             v
+                  Benchmark Execution Time
+                             |
+                             v
+                   Analyze the Results
 ```
 
 ---
 
-## Build and Run
+## 7. Build and Execution Instructions
 
-### Prerequisites
+### 7.1 Prerequisites
 
-- Java Development Kit (JDK) 21 or later, if required by the source code.
-- The project source files and student-record corpus.
+- Java Development Kit (JDK) compatible with the project source code.
+- Project source files located in `src/algorithms`.
+- Student record text files located in `corpus/student-records`.
 
-### Compile the Java sources
+### 7.2 Compile the Source Files
 
-Run the following commands from the project root in PowerShell:
+Execute the following commands from the project root in PowerShell:
 
 ```powershell
 javac -d bin src/algorithms/*.java
 ```
 
-### Launch the application
+### 7.3 Run the Application
 
 ```powershell
 java -cp bin algorithms.Main
 ```
 
-The application uses text files from `corpus/student-records`. The available menu options and their behavior are determined by the current implementation of `algorithms.Main`.
+The application loads student records from the configured corpus directory. Available menu options and their corresponding operations are defined by the current implementation of `algorithms.Main`.
 
 ---
 
-## Running Tests
+## 8. Test Execution
 
-After compilation, the following commands can be used to run the listed test classes, provided each class exists in the source tree and has a runnable `main` method:
+The project includes test classes for different algorithm implementations. The following PowerShell script can be used to run the listed classes after compilation, provided that each class exists and supports execution through a `main` method.
 
 ```powershell
 $tests = @(
@@ -158,19 +169,23 @@ foreach ($test in $tests) {
 }
 ```
 
-A test class should be included in this list only if it exists in the project and is compatible with this execution method. A successful compilation alone does not establish that all tests pass.
+Each test should be considered successful only after its execution completes and its output confirms the expected behavior. The list should be updated to reflect the test classes actually present in the repository.
 
 ---
 
-## Benchmarking
+## 9. Performance Benchmarking
 
-If `AlgorithmBenchmark.java` is present in the project, the benchmark can be launched from the project root using:
+The benchmark component, when present in the project source, compares Naive Pattern Matching, KMP, and Rabin–Karp under a common workload.
+
+### 9.1 Benchmark Execution
 
 ```powershell
 java -cp bin algorithms.AlgorithmBenchmark
 ```
 
-The benchmark procedure described for this project searches the corpus using the following six queries:
+### 9.2 Benchmark Queries
+
+The reported benchmark uses the following six queries:
 
 - `solidity`
 - `docker`
@@ -179,15 +194,26 @@ The benchmark procedure described for this project searches the corpus using the
 - `human computer interaction`
 - `benchmark-no-match-934872`
 
-According to the supplied benchmark description, records and queries are normalized using `Locale.ROOT`. The benchmark compares the matching-record paths returned by Naive Pattern Matching, KMP, and Rabin–Karp and stops before timing if their results differ.
+### 9.3 Benchmark Methodology
 
-The described procedure uses three warm-up batches and seven timed batches per algorithm. It measures elapsed time with `System.nanoTime()` and reports the median. Each batch searches the corpus for all six queries and collects the matching record paths.
+According to the supplied benchmark description, the procedure:
 
-### Previously reported benchmark results
+1. Searches the corpus using all six queries.
+2. Normalizes records and queries using `Locale.ROOT`.
+3. Collects matching record paths for each algorithm.
+4. Compares the results produced by the three algorithms.
+5. Stops before timing if the matching results differ.
+6. Performs three warm-up batches and seven timed batches per algorithm.
+7. Measures elapsed time using `System.nanoTime()`.
+8. Reports the median of the timed batches.
 
-The following values were supplied from a reported run using Java 21.0.9. They are retained here as reported results and have not been independently reproduced in this document.
+Each batch includes searches for all six queries across the corpus and the collection of matching record paths.
 
-| Query | Reported matching records |
+### 9.4 Reported Matching Counts
+
+The following matching counts were supplied for a reported verification run using Java 21.0.9.
+
+| Search Query | Reported Matching Records |
 |---|---:|
 | `solidity` | 99 |
 | `docker` | 183 |
@@ -196,28 +222,28 @@ The following values were supplied from a reported run using Java 21.0.9. They a
 | `human computer interaction` | 159 |
 | `benchmark-no-match-934872` | 0 |
 
-### Reported median batch times
+### 9.5 Reported Median Execution Times
 
-| Algorithm | Reported median |
+| Algorithm | Reported Median Time |
 |---|---:|
 | Naive Pattern Matching | 102.183 ms |
-| KMP | 123.963 ms |
+| Knuth–Morris–Pratt (KMP) | 123.963 ms |
 | Rabin–Karp | 518.937 ms |
 
-**Note:** Execution times depend on the machine, Java runtime, corpus contents, and system load. These measurements describe the reported run and should not be interpreted as guaranteed performance. Re-run the benchmark before presenting these values as independently verified results.
+**Experimental note:** These values represent the supplied benchmark results and have not been independently reproduced as part of this document. Execution times may vary depending on hardware, runtime conditions, corpus contents, and implementation details. The reported values should be retained as verified results only after reproducing the benchmark.
 
 ---
 
-## Project Scope
+## 10. Scope and Future Development
 
-The current phase focuses on pattern matching, corpus searching, result consistency, and performance benchmarking. Other algorithms or capabilities should be described as implemented only after their source code and behavior have been verified.
+The current phase is limited to pattern matching, student-record searching, matching-result consistency, and execution-time benchmarking.
 
-Future development will follow the project requirements and the progression of the DSA-3 course.
+Further functionality may be developed according to the project requirements and the progression of the DSA-3 course. Any additional algorithm or feature should be documented as implemented only after its source code and behavior have been verified.
 
 ---
 
-## Conclusion
+## 11. Conclusion
 
-The Intelligent Student Record Search System demonstrates how string-matching algorithms can be applied to searching student profile documents. Its current phase focuses on implementing Naive Pattern Matching, KMP, and Rabin–Karp, comparing their matching results, and measuring their execution performance.
+The Intelligent Student Record Search System applies string-matching techniques to the retrieval of information from student profile documents. The current phase focuses on implementing Naive Pattern Matching, Knuth–Morris–Pratt, and Rabin–Karp, comparing their matching results, and measuring their execution performance.
 
-Further validation of the source files, test execution, and benchmark measurements is necessary before claiming that every documented feature and result has been independently verified.
+The project provides a practical setting for studying algorithm correctness and performance under a common workload. Further validation through source-code inspection, test execution, and reproducible benchmarking will ensure that the final documentation accurately reflects the implemented system.
