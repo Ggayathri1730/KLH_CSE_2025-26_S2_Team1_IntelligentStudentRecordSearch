@@ -24,7 +24,7 @@ The Intelligent Student Record Search System is a data-structures-and-algorithms
 
 The system processes a collection of student profile documents and applies advanced string-matching algorithms to support efficient pattern and keyword searching across student information such as names, skills, projects, certifications, interests, and other relevant attributes.
 
-For pattern matching, the system includes Naive Pattern Matching, Knuth-Morris-Pratt (KMP), and Rabin-Karp. KMP uses the Longest Proper Prefix which is also Suffix (LPS) array to avoid unnecessary comparisons, while Rabin-Karp uses a rolling hash to identify candidate matches efficiently.
+For pattern matching, the system implements the Knuth-Morris-Pratt (KMP) and Rabin-Karp algorithms. KMP uses the Longest Proper Prefix which is also Suffix (LPS) array to avoid unnecessary comparisons, while Rabin-Karp uses a rolling hash to identify candidate matches efficiently.
 
 The project is designed to demonstrate the practical application of advanced string algorithms in a real-world student information search scenario.
 
@@ -48,7 +48,6 @@ The project includes:
 
 - Knuth-Morris-Pratt (KMP) pattern matching
 - Rabin-Karp pattern matching
-- Naive Pattern Matching
 - Pattern/string matching
 - Rolling hash
 - Student record corpus loading
@@ -65,17 +64,17 @@ Future phases may incorporate additional DSA-3 concepts based on the project req
 
 **Status:** In Progress
 
-The current implementation includes:
+The current implementation focuses on:
 
-- Naive Pattern Matching
 - KMP string matching
 - Rabin-Karp string matching
 - Search over the project's student record corpus
-- Comparison of Naive Pattern Matching, KMP, and Rabin-Karp
+- Comparison of KMP and Rabin-Karp
 - Matching-result consistency verification
 - Execution-time benchmarking
+- Operation-count comparison
 
-These algorithms are available through the search menu and benchmark.
+Both algorithms will be integrated into the project's search engine.
 
 ---
 
@@ -93,14 +92,14 @@ Student Record Corpus
         v
     User Query
         |
-        +-------------------+-------------------+
-        |                   |                   |
-        v                   v                   v
-      Naive                KMP             Rabin-Karp
-        |                   |                   |
-        +-------------------+-------------------+
-                            |
-                            v
+        +-------------------+
+        |                   |
+        v                   v
+       KMP             Rabin-Karp
+        |                   |
+        +---------+---------+
+                  |
+                  v
        Matching Student Records
                   |
                   v
@@ -108,60 +107,3 @@ Student Record Corpus
                   |
                   v
        Performance Analysis
-```
-
-## Build, Run, Tests, and Benchmark
-
-Compile the Java sources and launch the interactive application from the project
-root with Java 21 or later:
-
-```powershell
-javac -d bin src/algorithms/*.java
-java -cp bin algorithms.Main
-```
-
-The application reads `.txt` student records from `corpus/student-records`.
-Menu option 5 searches those records with Naive Pattern Matching; option 6 runs
-the benchmark.
-
-Run the available executable test classes after compiling:
-
-```powershell
-$tests = @(
-    "NaivePatternMatchingTest", "KMPTest", "RabinKarpTest",
-    "EditDistanceTest", "SuffixArrayTest", "DinicTest",
-    "EdmondsKarpTest", "FordFulkersonTest", "BipartiteMatchingTest",
-    "AhoCorasickTest", "ZAlgorithmTest"
-)
-foreach ($test in $tests) {
-    java -cp bin "algorithms.$test"
-}
-```
-
-Run the benchmark independently with:
-
-```powershell
-java -cp bin algorithms.AlgorithmBenchmark
-```
-
-The benchmark searches all 1,500 records for `solidity`, `docker`,
-`blockchain`, `image processing`, `human computer interaction`, and
-`benchmark-no-match-934872`. It lowercases records and queries with
-`Locale.ROOT`, compares the matching record paths from Naive Pattern Matching,
-KMP, and Rabin-Karp, and stops before timing if their results differ. It performs
-3 warm-up batches and 7 timed batches per algorithm, measures with
-`System.nanoTime()`, and reports the median. Each batch includes searching all
-six queries across the corpus and collecting matching paths.
-
-The final verification run on Java 21.0.9 found 99, 183, 150, 168, 159, and 0
-matching records for those queries, respectively. The run verified consistent
-results and measured these median batch times:
-
-| Algorithm | Median |
-| --- | ---: |
-| Naive Pattern Matching | 102.183 ms |
-| KMP | 123.963 ms |
-| Rabin-Karp | 518.937 ms |
-
-Timings vary by machine and run; these values document that verification run,
-not guaranteed performance.
