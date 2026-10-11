@@ -107,3 +107,60 @@ Student Record Corpus
                   |
                   v
        Performance Analysis
+```
+
+## Build, Run, Tests, and Benchmark
+
+Compile the Java sources and launch the interactive application from the project
+root with Java 21 or later:
+
+```powershell
+javac -d bin src/algorithms/*.java
+java -cp bin algorithms.Main
+```
+
+The application reads `.txt` student records from `corpus/student-records`.
+Menu option 5 searches those records with Naive Pattern Matching; option 6 runs
+the benchmark.
+
+Run the available executable test classes after compiling:
+
+```powershell
+$tests = @(
+    "NaivePatternMatchingTest", "KMPTest", "RabinKarpTest",
+    "EditDistanceTest", "SuffixArrayTest", "DinicTest",
+    "EdmondsKarpTest", "FordFulkersonTest", "BipartiteMatchingTest",
+    "AhoCorasickTest", "ZAlgorithmTest"
+)
+foreach ($test in $tests) {
+    java -cp bin "algorithms.$test"
+}
+```
+
+Run the benchmark independently with:
+
+```powershell
+java -cp bin algorithms.AlgorithmBenchmark
+```
+
+The benchmark searches all 1,500 records for `solidity`, `docker`,
+`blockchain`, `image processing`, `human computer interaction`, and
+`benchmark-no-match-934872`. It lowercases records and queries with
+`Locale.ROOT`, compares the matching record paths from Naive Pattern Matching,
+KMP, and Rabin-Karp, and stops before timing if their results differ. It performs
+3 warm-up batches and 7 timed batches per algorithm, measures with
+`System.nanoTime()`, and reports the median. Each batch includes searching all
+six queries across the corpus and collecting matching paths.
+
+The final verification run on Java 21.0.9 found 99, 183, 150, 168, 159, and 0
+matching records for those queries, respectively. The run verified consistent
+results and measured these median batch times:
+
+| Algorithm | Median |
+| --- | ---: |
+| Naive Pattern Matching | 102.183 ms |
+| KMP | 123.963 ms |
+| Rabin-Karp | 518.937 ms |
+
+Timings vary by machine and run; these values document that verification run,
+not guaranteed performance.
