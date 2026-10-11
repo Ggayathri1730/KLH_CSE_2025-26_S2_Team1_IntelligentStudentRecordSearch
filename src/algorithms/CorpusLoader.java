@@ -1,3 +1,4 @@
+
 package algorithms;
 
 import java.io.BufferedReader;
@@ -6,10 +7,48 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class CorpusLoader {
 
-    private static void collectTextFiles(File folder, List<File> textFiles) {
+    private static final int FUZZY_THRESHOLD = 2;
+
+    private static class StudentRecord {
+        String fileName;
+        String content;
+        String rollNumber = "Not available";
+        String name = "Not available";
+
+        StudentRecord(File file, String content) {
+            this.fileName = file.getName();
+            this.content = content;
+
+            for (String line : content.split("\\R")) {
+                String trimmed = line.trim();
+
+                if (trimmed.startsWith("Roll Number:")) {
+                    rollNumber =
+                            trimmed.substring("Roll Number:".length()).trim();
+                } else if (trimmed.startsWith("Name:")) {
+                    name =
+                            trimmed.substring("Name:".length()).trim();
+                }
+            }
+        }
+    }
+
+    private static class FuzzyMatch {
+        String candidate;
+        int distance;
+
+        FuzzyMatch(String candidate, int distance) {
+            this.candidate = candidate;
+            this.distance = distance;
+        }
+    }
+
+    private static void collectTextFiles(
+            File folder, List<File> textFiles) {
 
         File[] files = folder.listFiles();
 
@@ -18,528 +57,335 @@ public class CorpusLoader {
         }
 
         for (File file : files) {
-
             if (file.isDirectory()) {
-
                 collectTextFiles(file, textFiles);
-
             } else if (file.isFile()
-                    && file.getName().toLowerCase().endsWith(".txt")) {
-
+                    && file.getName().toLowerCase(Locale.ROOT)
+                    .endsWith(".txt")) {
                 textFiles.add(file);
             }
         }
     }
 
+    private static String readFile(File file) throws IOException {
+        StringBuilder content = new StringBuilder();
 
-    // =========================================================
-    // NORMAL SEARCH USING KMP
-    // =========================================================
+        try (BufferedReader reader =
+                     new BufferedReader(new FileReader(file))) {
 
-    public static void searchCorpus(String folderPath, String pattern) {
+            String line;
 
-        File folder = new File(folderPath);
-
-        if (!folder.exists() || !folder.isDirectory()) {
-
-            System.out.println("Corpus folder not found.");
-            return;
-        }
-
-        List<File> files = new ArrayList<>();
-
-        collectTextFiles(folder, files);
-
-        if (files.isEmpty()) {
-
-            System.out.println(
-                    "No .txt files found in the corpus."
-            );
-
-            return;
-        }
-
-        int matchCount = 0;
-
-        String searchPattern = pattern.toLowerCase();
-
-        System.out.println(
-                "\n=============================================="
-        );
-
-        System.out.println(
-                "         INTELLIGENT SEARCH RESULT"
-        );
-
-        System.out.println(
-                "=============================================="
-        );
-
-        System.out.println(
-                "Search Query: " + pattern
-        );
-
-
-        for (File file : files) {
-
-            StringBuilder content = new StringBuilder();
-
-            try (BufferedReader reader =
-                         new BufferedReader(new FileReader(file))) {
-
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-
-                    content.append(line).append("\n");
-                }
-
-
-                // Search complete record using KMP
-                boolean found = KMP.search(
-                        content.toString().toLowerCase(),
-                        searchPattern
-                );
-
-
-                if (found) {
-
-                    matchCount++;
-
-                    String rollNumber = "";
-                    String name = "";
-
-                    StringBuilder matchingFields =
-                            new StringBuilder();
-
-                    int matchingFieldCount = 0;
-
-
-                    // Read record again to extract details
-                    try (BufferedReader displayReader =
-                                 new BufferedReader(
-                                         new FileReader(file))) {
-
-                        while ((line =
-                                displayReader.readLine())
-                                != null) {
-
-                            String lowerLine =
-                                    line.toLowerCase();
-
-
-                            // Store Roll Number
-                            if (line.startsWith("Roll Number")) {
-
-                                rollNumber = line;
-                            }
-
-
-                            // Store Name
-                            if (line.startsWith("Name")) {
-
-                                name = line;
-                            }
-
-
-                            // Check each field using KMP
-                            if (KMP.search(
-                                    lowerLine,
-                                    searchPattern)) {
-
-                                if (!line.startsWith("Roll Number")
-                                        && !line.startsWith("Name")) {
-
-                                    matchingFields
-                                            .append("> ")
-                                            .append(line)
-                                            .append("\n");
-
-                                    matchingFieldCount++;
-                                }
-                            }
-                        }
-                    }
-
-
-                    System.out.println(
-                            "\nMatching Student Record #"
-                                    + matchCount
-                    );
-
-
-                    System.out.println(
-                            "\n----------- STUDENT IDENTITY -----------"
-                    );
-
-                    System.out.println(rollNumber);
-
-                    System.out.println(name);
-
-                    System.out.println(
-                            "----------------------------------------"
-                    );
-
-
-                    System.out.println(
-                            "\nMATCHING INFORMATION"
-                    );
-
-                    System.out.println(
-                            "----------------------------------------"
-                    );
-
-
-                    if (matchingFields.length() > 0) {
-
-                        System.out.print(matchingFields);
-
-                    } else {
-
-                        // Search Roll Number
-                        if (KMP.search(
-                                rollNumber.toLowerCase(),
-                                searchPattern)) {
-
-                            System.out.println(
-                                    "> " + rollNumber
-                            );
-
-                            matchingFieldCount++;
-                        }
-
-
-                        // Search Name
-                        if (KMP.search(
-                                name.toLowerCase(),
-                                searchPattern)) {
-
-                            System.out.println(
-                                    "> " + name
-                            );
-
-                            matchingFieldCount++;
-                        }
-                    }
-
-
-                    System.out.println(
-                            "\nMatch Summary: \""
-                                    + pattern
-                                    + "\" found in "
-                                    + matchingFieldCount
-                                    + " field(s)"
-                    );
-
-
-                    System.out.println(
-                            "=============================================="
-                    );
-                }
-
-            } catch (IOException e) {
-
-                System.out.println(
-                        "Error reading: "
-                                + file.getName()
-                );
+            while ((line = reader.readLine()) != null) {
+                content.append(line)
+                       .append(System.lineSeparator());
             }
         }
 
-
-        System.out.println(
-                "\nTotal Matching Students: "
-                        + matchCount
-        );
-
-        System.out.println(
-                "=============================================="
-        );
-
-
-        // Save normal search
-        SearchHistory.saveSearch(
-                pattern,
-                matchCount
-        );
+        return content.toString();
     }
 
+    private static List<StudentRecord> loadRecords(String folderPath) {
+        File folder = new File(folderPath);
 
+        if (!folder.exists() || !folder.isDirectory()) {
+            System.out.println(
+                    "Error: Corpus folder not found: " + folderPath);
+            System.out.println(
+                    "Please check the corpus folder path.");
+            return null;
+        }
+
+        List<File> files = new ArrayList<>();
+        collectTextFiles(folder, files);
+
+        if (files.isEmpty()) {
+            System.out.println(
+                    "No .txt student records found in the corpus.");
+            return null;
+        }
+
+        List<StudentRecord> records = new ArrayList<>();
+
+        for (File file : files) {
+            try {
+                records.add(
+                        new StudentRecord(file, readFile(file)));
+            } catch (IOException e) {
+                System.out.println(
+                        "Could not read " + file.getName()
+                        + ": " + e.getMessage());
+            }
+        }
+
+        return records;
+    }
 
     // =========================================================
-    // FUZZY SEARCH USING EDIT DISTANCE
+    // OPTION 1: NORMAL SEARCH USING KMP
+    // =========================================================
+
+    public static void searchCorpus(
+            String folderPath, String pattern) {
+
+        if (pattern == null || pattern.trim().isEmpty()) {
+            System.out.println("Search pattern cannot be empty.");
+            return;
+        }
+
+        List<StudentRecord> records = loadRecords(folderPath);
+
+        if (records == null) {
+            return;
+        }
+
+        String searchPattern = pattern.toLowerCase(Locale.ROOT);
+        int matchCount = 0;
+
+        System.out.println("\n========== KMP SEARCH RESULTS ==========");
+
+        for (StudentRecord record : records) {
+            String text = record.content.toLowerCase(Locale.ROOT);
+
+            if (KMP.search(text, searchPattern)) {
+                matchCount++;
+
+                printRecord(record, matchCount);
+            }
+        }
+
+        printSummary(matchCount, "Exact KMP");
+        SearchHistory.saveSearch(pattern, matchCount);
+    }
+
+    // =========================================================
+    // NAIVE PATTERN MATCHING: SEARCH THE ENTIRE CORPUS
+    // =========================================================
+
+    public static void naiveSearchCorpus(
+            String folderPath, String pattern) {
+
+        if (pattern == null || pattern.trim().isEmpty()) {
+            System.out.println("Search pattern cannot be empty.");
+            return;
+        }
+
+        List<StudentRecord> records = loadRecords(folderPath);
+
+        if (records == null) {
+            return;
+        }
+
+        String searchPattern = pattern.toLowerCase(Locale.ROOT);
+        int matchCount = 0;
+
+        System.out.println(
+                "\n===== NAIVE PATTERN MATCHING RESULTS =====");
+
+        for (StudentRecord record : records) {
+            String text = record.content.toLowerCase(Locale.ROOT);
+
+            // NaivePatternMatching.search returns the first index,
+            // or -1 if the pattern is not present.
+            if (NaivePatternMatching.search(
+                    text, searchPattern) >= 0) {
+
+                matchCount++;
+
+                printRecord(record, matchCount);
+            }
+        }
+
+        printSummary(matchCount, "Naive Pattern Matching");
+        SearchHistory.saveSearch(pattern, matchCount);
+    }
+
+    // =========================================================
+    // SHARED STUDENT RECORD DISPLAY
+    // =========================================================
+
+    private static void printRecord(
+            StudentRecord record, int matchCount) {
+
+        System.out.println("\nMatch " + matchCount);
+        System.out.println("File: " + record.fileName);
+        System.out.println("Roll Number: " + record.rollNumber);
+        System.out.println("Name: " + record.name);
+        System.out.println("Complete Student Record:");
+        System.out.println(record.content);
+        System.out.println("----------------------------------------");
+    }
+
+    // =========================================================
+    // OPTION 2: FUZZY SEARCH USING EDIT DISTANCE
     // =========================================================
 
     public static void fuzzySearchCorpus(
-            String folderPath,
-            String pattern) {
+            String folderPath, String pattern) {
 
-        File folder = new File(folderPath);
-
-
-        if (!folder.exists() || !folder.isDirectory()) {
-
-            System.out.println(
-                    "Corpus folder not found."
-            );
-
+        if (pattern == null || pattern.trim().isEmpty()) {
+            System.out.println("Search pattern cannot be empty.");
             return;
         }
 
+        List<StudentRecord> records = loadRecords(folderPath);
 
-        List<File> files = new ArrayList<>();
-
-        collectTextFiles(folder, files);
-
-
-        if (files.isEmpty()) {
-
-            System.out.println(
-                    "No .txt files found in the corpus."
-            );
-
+        if (records == null) {
             return;
         }
 
-
-        String searchPattern =
-                pattern.toLowerCase().trim();
-
-
+        String query = normalize(pattern);
         int matchCount = 0;
 
-
-        // Maximum allowed Edit Distance
-        int threshold = 2;
-
-
+        System.out.println("\n======= FUZZY SEARCH RESULTS =======");
+        System.out.println("Query: " + pattern);
         System.out.println(
-                "\n=============================================="
-        );
-
-        System.out.println(
-                "       FUZZY SEARCH USING EDIT DISTANCE"
-        );
-
-        System.out.println(
-                "=============================================="
-        );
-
-        System.out.println(
-                "Search Query: " + pattern
-        );
-
-        System.out.println(
-                "Maximum Edit Distance: " + threshold
-        );
-
-
-        // =====================================================
-        // CHECK EVERY STUDENT RECORD
-        // =====================================================
-
-        for (File file : files) {
-
-            StringBuilder content =
-                    new StringBuilder();
-
-
-            try (BufferedReader reader =
-                         new BufferedReader(
-                                 new FileReader(file))) {
-
-                String line;
-
-
-                // Read complete student record
-                while ((line = reader.readLine()) != null) {
-
-                    content.append(line).append("\n");
-                }
-
-
-                String lowerContent =
-                        content.toString().toLowerCase();
-
-
-                /*
-                 * Split complete student record into words.
-                 *
-                 * Example:
-                 *
-                 * "Skills: Java Python SQL"
-                 *
-                 * becomes:
-                 *
-                 * Skills
-                 * Java
-                 * Python
-                 * SQL
-                 */
-
-                String[] words =
-                        lowerContent.split(
-                                "[^a-zA-Z0-9]+"
-                        );
-
-
-                String closestWord = "";
-
-                int smallestDistance =
-                        Integer.MAX_VALUE;
-
-
-                // =================================================
-                // CALCULATE EDIT DISTANCE
-                // =================================================
-
-                for (String word : words) {
-
-                    if (word.isEmpty()) {
-
-                        continue;
-                    }
-
-
-                    int distance =
-                            EditDistance.calculate(
-                                    searchPattern,
-                                    word
-                            );
-
-
-                    if (distance < smallestDistance) {
-
-                        smallestDistance = distance;
-
-                        closestWord = word;
-                    }
-                }
-
-
-                // =================================================
-                // CHECK FUZZY MATCH
-                // =================================================
-
-                if (smallestDistance <= threshold) {
-
-                    matchCount++;
-
-
-                    String rollNumber = "";
-
-                    String name = "";
-
-
-                    // Read record again to get student details
-                    try (BufferedReader displayReader =
-                                 new BufferedReader(
-                                         new FileReader(file))) {
-
-                        while ((line =
-                                displayReader.readLine())
-                                != null) {
-
-
-                            if (line.startsWith(
-                                    "Roll Number")) {
-
-                                rollNumber = line;
-                            }
-
-
-                            if (line.startsWith("Name")) {
-
-                                name = line;
-                            }
-                        }
-                    }
-
-
-                    // =================================================
-                    // DISPLAY RESULT
-                    // =================================================
-
-                    System.out.println(
-                            "\nMatching Student Record #"
-                                    + matchCount
-                    );
-
-
-                    System.out.println(
-                            "\n----------- STUDENT IDENTITY -----------"
-                    );
-
-                    System.out.println(rollNumber);
-
-                    System.out.println(name);
-
-                    System.out.println(
-                            "----------------------------------------"
-                    );
-
-
-                    System.out.println(
-                            "\nFUZZY MATCH INFORMATION"
-                    );
-
-                    System.out.println(
-                            "----------------------------------------"
-                    );
-
-
-                    System.out.println(
-                            "Query         : "
-                                    + pattern
-                    );
-
-
-                    System.out.println(
-                            "Closest Match : "
-                                    + closestWord
-                    );
-
-
-                    System.out.println(
-                            "Edit Distance : "
-                                    + smallestDistance
-                    );
-
-
-                    System.out.println(
-                            "----------------------------------------"
-                    );
-                }
-
-
-            } catch (IOException e) {
-
-                System.out.println(
-                        "Error reading: "
-                                + file.getName()
-                );
+                "Maximum edit distance: " + FUZZY_THRESHOLD);
+
+        for (StudentRecord record : records) {
+            FuzzyMatch match =
+                    findClosestMatch(query, record.content);
+
+            if (match != null
+                    && match.distance <= FUZZY_THRESHOLD) {
+
+                matchCount++;
+
+                System.out.println("\nMatch " + matchCount);
+                System.out.println("File: " + record.fileName);
+                System.out.println("Roll Number: " + record.rollNumber);
+                System.out.println("Name: " + record.name);
+                System.out.println("Closest match: " + match.candidate);
+                System.out.println("Edit distance: " + match.distance);
+                System.out.println("Complete Student Record:");
+                System.out.println(record.content);
+                System.out.println("------------------------------------");
             }
         }
 
+        printSummary(matchCount, "Fuzzy");
+        SearchHistory.saveSearch(pattern, matchCount);
+    }
 
-        // =========================================================
-        // FINAL RESULT
-        // =========================================================
+    // =========================================================
+    // FUZZY SEARCH HELPERS
+    // =========================================================
 
-        System.out.println(
-                "\nTotal Fuzzy Matching Students: "
-                        + matchCount
-        );
+    private static String normalize(String value) {
+        return value.trim()
+                    .toLowerCase(Locale.ROOT)
+                    .replaceAll("[^\\p{L}\\p{N}]+", " ")
+                    .trim();
+    }
 
-        System.out.println(
-                "=============================================="
-        );
+    private static FuzzyMatch findClosestMatch(
+            String query, String content) {
 
+        if (query.isEmpty()) {
+            return null;
+        }
 
-        // Save fuzzy search
-        SearchHistory.saveSearch(
-                pattern,
-                matchCount
-        );
+        String normalizedContent = normalize(content);
+
+        // Exact phrase match always has distance zero.
+        if (containsPhrase(normalizedContent, query)) {
+            return new FuzzyMatch(query, 0);
+        }
+
+        String[] queryWords = query.split("\\s+");
+        String[] words = normalizedContent.split("\\s+");
+
+        // Very short queries are exact-only to avoid false positives.
+        if (query.length() < 3) {
+            return null;
+        }
+
+        FuzzyMatch best = null;
+
+        // For a single word, compare against individual words only.
+        if (queryWords.length == 1) {
+            for (String word : words) {
+                if (word.isEmpty()) {
+                    continue;
+                }
+
+                int distance =
+                        EditDistance.calculate(query, word);
+
+                if (best == null || distance < best.distance) {
+                    best = new FuzzyMatch(word, distance);
+                }
+
+                if (distance == 0) {
+                    return best;
+                }
+            }
+
+            return best;
+        }
+
+        // For a phrase, compare adjacent groups with similar word counts.
+        int minWords = Math.max(1, queryWords.length - 1);
+        int maxWords = queryWords.length + 1;
+
+        for (int start = 0; start < words.length; start++) {
+            for (int count = minWords;
+                    count <= maxWords
+                    && start + count <= words.length;
+                    count++) {
+
+                StringBuilder candidate = new StringBuilder();
+
+                for (int j = start; j < start + count; j++) {
+                    if (candidate.length() > 0) {
+                        candidate.append(' ');
+                    }
+
+                    candidate.append(words[j]);
+                }
+
+                String phrase = candidate.toString();
+
+                int distance =
+                        EditDistance.calculate(query, phrase);
+
+                if (best == null || distance < best.distance) {
+                    best = new FuzzyMatch(phrase, distance);
+                }
+
+                if (distance == 0) {
+                    return best;
+                }
+            }
+        }
+
+        return best;
+    }
+
+    private static boolean containsPhrase(
+            String normalizedContent, String query) {
+
+        return (" " + normalizedContent + " ")
+                .contains(" " + query + " ");
+    }
+
+    // =========================================================
+    // SHARED SEARCH SUMMARY
+    // =========================================================
+
+    private static void printSummary(
+            int count, String searchType) {
+
+        System.out.println("\n========================================");
+
+        if (count == 0) {
+            System.out.println(
+                    "No matching student records found.");
+        } else {
+            System.out.println(
+                    "Total matching student records: " + count);
+        }
+
+        System.out.println("Search type: " + searchType);
+        System.out.println("========================================");
     }
 }
