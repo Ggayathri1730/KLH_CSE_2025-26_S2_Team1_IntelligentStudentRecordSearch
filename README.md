@@ -24,7 +24,7 @@ The Intelligent Student Record Search System is a data-structures-and-algorithms
 
 The system processes a collection of student profile documents and applies advanced string-matching algorithms to support efficient pattern and keyword searching across student information such as names, skills, projects, certifications, interests, and other relevant attributes.
 
-For pattern matching, the system implements the Knuth-Morris-Pratt (KMP) and Rabin-Karp algorithms. KMP uses the Longest Proper Prefix which is also Suffix (LPS) array to avoid unnecessary comparisons, while Rabin-Karp uses a rolling hash to identify candidate matches efficiently.
+For pattern matching, the system includes Naive Pattern Matching, Knuth-Morris-Pratt (KMP), and Rabin-Karp. KMP uses the Longest Proper Prefix which is also Suffix (LPS) array to avoid unnecessary comparisons, while Rabin-Karp uses a rolling hash to identify candidate matches efficiently.
 
 The project is designed to demonstrate the practical application of advanced string algorithms in a real-world student information search scenario.
 
@@ -48,6 +48,7 @@ The project includes:
 
 - Knuth-Morris-Pratt (KMP) pattern matching
 - Rabin-Karp pattern matching
+- Naive Pattern Matching
 - Pattern/string matching
 - Rolling hash
 - Student record corpus loading
@@ -64,17 +65,17 @@ Future phases may incorporate additional DSA-3 concepts based on the project req
 
 **Status:** In Progress
 
-The current implementation focuses on:
+The current implementation includes:
 
+- Naive Pattern Matching
 - KMP string matching
 - Rabin-Karp string matching
 - Search over the project's student record corpus
-- Comparison of KMP and Rabin-Karp
+- Comparison of Naive Pattern Matching, KMP, and Rabin-Karp
 - Matching-result consistency verification
 - Execution-time benchmarking
-- Operation-count comparison
 
-Both algorithms will be integrated into the project's search engine.
+These algorithms are available through the search menu and benchmark.
 
 ---
 
@@ -92,14 +93,14 @@ Student Record Corpus
         v
     User Query
         |
-        +-------------------+
-        |                   |
-        v                   v
-       KMP             Rabin-Karp
-        |                   |
-        +---------+---------+
-                  |
-                  v
+        +-------------------+-------------------+
+        |                   |                   |
+        v                   v                   v
+      Naive                KMP             Rabin-Karp
+        |                   |                   |
+        +-------------------+-------------------+
+                            |
+                            v
        Matching Student Records
                   |
                   v
