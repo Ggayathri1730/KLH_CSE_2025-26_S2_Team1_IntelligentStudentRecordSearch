@@ -1,4 +1,3 @@
-
 package algorithms;
 
 public class NaivePatternMatching {
